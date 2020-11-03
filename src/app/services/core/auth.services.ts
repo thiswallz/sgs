@@ -20,17 +20,21 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  login(email: string, password: string): Observable<IUser> {
-    return this.http
-      .post<IUser>(`${environment.restApi}/login`, {
+  login(email: string, password: string): void {
+    this.http
+      .put<IUser>(`${environment.restApi}login`, {
         email,
         password
       })
-      .pipe(
-        map(result => {
-          localStorage.setItem(`${LS_USER_KEY}INFO`, JSON.stringify(result));
-          return result;
-        })
+      .subscribe(
+        (user: IUser) => {
+          localStorage.setItem(`${LS_USER_KEY}INFO`, JSON.stringify(user));
+          this.router.navigate(['/dashboard']); // TODO get initial view from roles? tbd
+        },
+        err => {
+          // FIXME send err to global reducer
+          console.error(err);
+        }
       );
   }
 

@@ -1,1 +1,16 @@
-<p>login works!</p>
+<form class="l-login" [formGroup]="form">
+  <div class="l-login__title">
+    Login
+  </div>
+  <div class="l-login__container">
+    <div class="l-login__input">
+      <input type="text" formControlName="email" data-e2e-id="email" />
+    </div>
+    <div class="l-login__input">
+      <input type="text" formControlName="password" data-e2e-id="password" />
+    </div>
+  </div>
+  <div class="l-login__footer">
+    <button data-e2e-id="login" (click)="login()">Login</button>
+  </div>
+</form>

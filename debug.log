@@ -1,5 +1,0 @@
-[1103/201210.940:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
-[1103/201210.965:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mauri\AppData\Local\Temp\karma-58883689\Crashpad\attachments\39131889-2a20-4a4d-b690-e4e870f9167f: The system cannot find the path specified. (0x3)
-[1103/201211.309:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
-[1103/201211.637:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
-[1103/201211.980:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: The specified information record length does not match the length required for the specified information class. (0xc0000004)
