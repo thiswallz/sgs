@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/core/auth.services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { LoginComponent } from './login.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -11,12 +12,13 @@ describe('LoginComponent', () => {
   let debugElement: DebugElement;
   let fixture: ComponentFixture<LoginComponent>;
   let authService: AuthService;
+  const initialState = {};
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
-      providers: [AuthService, FormBuilder]
+      providers: [AuthService, FormBuilder, provideMockStore({ initialState })]
     }).compileComponents();
   }));
 
