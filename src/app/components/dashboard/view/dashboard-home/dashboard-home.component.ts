@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/core/auth.services';
 
 @Component({
   selector: 'sgs-dashboard-home',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-home.component.scss']
 })
 export class DashboardHomeComponent implements OnInit {
-  constructor() {}
+  constructor(private authenticationService: AuthService) {}
 
   ngOnInit(): void {}
+
+  logout() {
+    this.authenticationService.logout();
+  }
 }
