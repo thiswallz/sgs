@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { reducers } from './store/app.reducer';
 import { routes } from './app.routing';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function logger(reducer): any {
   return storeLogger()(reducer);
@@ -25,7 +26,8 @@ export const metaReducers = environment.production ? [] : [logger];
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

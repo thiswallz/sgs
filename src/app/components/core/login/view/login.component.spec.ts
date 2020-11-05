@@ -48,4 +48,16 @@ describe('LoginComponent', () => {
 
     expect(spyOnAuth).toHaveBeenCalled();
   });
+
+  it('should not login when the formn is invalid', () => {
+    const spyOnAuth = spyOn(authService, 'login').and.callThrough();
+
+    const button = fixture.debugElement.nativeElement.querySelector('*[data-e2e-id=login]');
+    const email = fixture.debugElement.nativeElement.querySelector('*[data-e2e-id=email]');
+    email.value = 'email@y.com';
+    email.dispatchEvent(new Event('input'));
+    button.click();
+
+    expect(spyOnAuth).not.toHaveBeenCalled();
+  });
 });
