@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/core/auth.services';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  submitted = false;
 
   constructor(private readonly formBuilder: FormBuilder, private authenticationService: AuthService) {}
 
@@ -20,6 +21,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
     this.authenticationService.login(this.form.value.email, this.form.value.password);
+  }
+
+  // shortcut
+  get f() {
+    return this.form.controls;
   }
 }

@@ -34,7 +34,7 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should login when after the user fills the form and press login', () => {
+  it('should login after the user fills the form and press login', () => {
     const spyOnAuth = spyOn(authService, 'login').and.callThrough();
 
     const button = fixture.debugElement.nativeElement.querySelector('*[data-e2e-id=login]');
@@ -42,6 +42,8 @@ describe('LoginComponent', () => {
     const password = fixture.debugElement.nativeElement.querySelector('*[data-e2e-id=password]');
     email.value = 'email@y.com';
     password.value = '1234';
+    email.dispatchEvent(new Event('input'));
+    password.dispatchEvent(new Event('input'));
     button.click();
 
     expect(spyOnAuth).toHaveBeenCalled();

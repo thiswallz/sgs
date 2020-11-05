@@ -5,9 +5,15 @@
   <div class="l-login__container">
     <div class="l-login__input">
       <input type="text" formControlName="email" data-e2e-id="email" />
+      <div *ngIf="submitted && f.email.errors">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+      </div>
     </div>
     <div class="l-login__input">
       <input type="text" formControlName="password" data-e2e-id="password" />
+      <div *ngIf="submitted && f.password.errors">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
     </div>
   </div>
   <div class="l-login__footer">
