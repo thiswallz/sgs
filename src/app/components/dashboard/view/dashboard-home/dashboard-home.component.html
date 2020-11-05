@@ -1,12 +1,6 @@
+<sgs-toolbar></sgs-toolbar>
 <div>
+  <!-- TODO move logout to toolbar-->
   <button (click)="logout()">Logout</button>
-  <div>
-    <mat-form-field appearance="outline">
-      <mat-label>Select company</mat-label>
-      <mat-select [formControl]="companyControl">
-        <mat-option *ngFor="let role of userInfo.roles" [value]="role.companyId"> {{ role.companyId }} {{ role.companyName }} </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
 </div>
 <p>dashboard-home works!</p>

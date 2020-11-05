@@ -5,12 +5,12 @@ import { StoreModule } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { NotAuthorizedComponent } from './components/core/not-authorized/view/not-authorized/not-authorized.component';
 import { AppComponent } from './app.component';
 import { reducers } from './store/app.reducer';
 import { routes } from './app.routing';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotAuthorizedComponent } from './containers/not-authorized/view/not-authorized/not-authorized.component';
 
 export function logger(reducer): any {
   return storeLogger()(reducer);
