@@ -1,0 +1,22 @@
+.l-footer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 45px;
+  justify-content: initial;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  .h-separator {
+    span {
+      padding-top: 50%;
+    }
+  }
+  .info {
+    padding-top: 12px;
+    &__right {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
