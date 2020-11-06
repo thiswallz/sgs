@@ -33,6 +33,14 @@
   ::-webkit-scrollbar-thumb:hover {
     background: $power;
   }
+  /* inputs */
+  input {
+    background: $back-color;
+    color: $color;
+  }
+  .errors {
+    color: $error;
+  }
   /* mat select */
   .mat-select-panel {
     background: darken($back-color, 5%);
@@ -103,5 +111,9 @@
         );
       }
     }
+  }
+  /* login */
+  .l-login {
+    background: lighten($back-color, 10%);
   }
 }

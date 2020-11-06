@@ -5,7 +5,7 @@ import { FooterComponent } from './footer.component';
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
-  const initialState = {};
+  const initialState = { status: { connected: false } };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

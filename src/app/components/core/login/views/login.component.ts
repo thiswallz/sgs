@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IUser } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/core/auth/auth.services';
+import * as messageActions from 'src/app/store/actions/message.actions';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'sgs-login',
@@ -10,8 +15,14 @@ import { AuthService } from 'src/app/services/core/auth/auth.services';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   submitted = false;
+  loading = false;
 
-  constructor(private readonly formBuilder: FormBuilder, private authenticationService: AuthService) {}
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private authenticationService: AuthService,
+    private readonly router: Router,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -25,7 +36,20 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.authenticationService.login(this.form.value.email, this.form.value.password);
+    this.loading = true;
+    this.authenticationService.login(this.form.value.email, this.form.value.password).subscribe(
+      (user: IUser) => {
+        this.authenticationService.setUserInfo(user);
+        this.router.navigate(['/dashboard']);
+      },
+      err => {
+        this.loading = false;
+        this.store.dispatch(new messageActions.SendMessageError(err.message));
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
 
   // shortcut

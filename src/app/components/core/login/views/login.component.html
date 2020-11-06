@@ -1,22 +1,33 @@
 <form class="l-login" [formGroup]="form">
   <div class="l-login__title">
-    Login
+    <h2>
+      Login
+    </h2>
   </div>
   <div class="l-login__container">
     <div class="l-login__input">
+      <span>E-mail</span>
       <input type="text" formControlName="email" data-e2e-id="email" />
-      <div *ngIf="submitted && f.email.errors">
+      <div *ngIf="submitted && f.email.errors" class="errors">
         <div *ngIf="f.email.errors.required">Email is required</div>
       </div>
     </div>
     <div class="l-login__input">
+      <span>Password</span>
       <input type="text" formControlName="password" data-e2e-id="password" />
-      <div *ngIf="submitted && f.password.errors">
+      <div *ngIf="submitted && f.password.errors" class="errors">
         <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
     </div>
   </div>
-  <div class="l-login__footer">
-    <button data-e2e-id="login" (click)="login()">Login</button>
+  <div class="l-login__footer c-actions">
+    <button data-e2e-id="login" (click)="login()" [disabled]="loading">
+      {{ loading ? '...' : 'Login' }}
+    </button>
   </div>
 </form>
+<div class="h-company">
+  <img
+    src="https://images.squarespace-cdn.com/content/59a054c8f9a61e77faec97c4/1593797542716-O05Y9SMJETZV6HUE6607/Sigsense.png?content-type=image%2Fpng"
+  />
+</div>

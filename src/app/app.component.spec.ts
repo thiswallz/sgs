@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, async } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
@@ -11,7 +12,7 @@ describe('AppComponent', () => {
     let store: MockStore;
     const initialState = {};
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule, MatSnackBarModule],
       declarations: [AppComponent],
       providers: [AuthService, provideMockStore({ initialState })]
     }).compileComponents();

@@ -1,0 +1,14 @@
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: $sm) {
+  .l-toolbar {
+    .l-user-info {
+      display: none;
+    }
+    .l-filter {
+      > span {
+        display: none;
+      }
+    }
+  }
+}

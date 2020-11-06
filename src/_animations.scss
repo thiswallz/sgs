@@ -1,0 +1,25 @@
+/* ANIMATIONS */
+
+@keyframes connected {
+  0% {
+    color: darken($success, 5%);
+  }
+  50% {
+    color: lighten($success, 20%);
+  }
+  100% {
+    color: darken($success, 5%);
+  }
+}
+
+@keyframes disconnected {
+  0% {
+    color: darken($error, 5%);
+  }
+  50% {
+    color: lighten($error, 20%);
+  }
+  100% {
+    color: darken($error, 5%);
+  }
+}
