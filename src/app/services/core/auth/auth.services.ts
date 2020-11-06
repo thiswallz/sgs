@@ -22,9 +22,8 @@ export class AuthService {
   }
 
   login(email: string, password: string): void {
-    // TODO interceptor for other calls and error handler to kick out the user
     this.http
-      .put<IUser>(`${environment.restApi}login`, {
+      .put<IUser>(`${environment.restApi}/login`, {
         email,
         password
       })

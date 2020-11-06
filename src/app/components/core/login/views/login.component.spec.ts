@@ -1,11 +1,11 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from 'src/app/services/core/auth.services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { LoginComponent } from './login.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from 'src/app/services/core/auth/auth.services';
+import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

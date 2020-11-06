@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
-import { AuthService } from 'src/app/services/core/auth.services';
+import { AuthService } from 'src/app/services/core/auth/auth.services';
 
 import { DashboardHomeComponent } from './dashboard-home.component';
 

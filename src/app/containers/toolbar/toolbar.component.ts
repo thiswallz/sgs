@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { AuthService } from 'src/app/services/core/auth/auth.services';
 import { IUser } from 'src/app/models/user.model';
-import { AuthService } from 'src/app/services/core/auth.services';
 import * as userActions from 'src/app/store/actions/user.actions';
 import { AppState } from 'src/app/store/app.state';
 
@@ -23,7 +23,13 @@ export class ToolbarComponent implements OnInit {
     });
     this.userInfo = this.authenticationService.getUserInfo();
     // TODO see if we preselect 1 company by default
-    this.selectCompany(this.userInfo.roles[0].companyId);
+    if (this.userInfo?.roles?.length > 0) {
+      this.selectCompany(this.userInfo.roles[0].companyId);
+    }
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
   private selectCompany(companyId: number) {

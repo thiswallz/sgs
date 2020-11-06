@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  restApi: 'https://dev.sigsense.tech/'
+  restApi: 'https://dev.sigsense.tech'
 };
 
 /*

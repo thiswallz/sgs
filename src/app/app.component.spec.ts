@@ -1,9 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
-import { AuthService } from './services/core/auth.services';
+import { AuthService } from './services/core/auth/auth.services';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,7 +11,7 @@ describe('AppComponent', () => {
     let store: MockStore;
     const initialState = {};
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [AppComponent],
       providers: [AuthService, provideMockStore({ initialState })]
     }).compileComponents();

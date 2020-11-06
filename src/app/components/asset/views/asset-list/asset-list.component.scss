@@ -1,0 +1,7 @@
+.l-table {
+  &__row {
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

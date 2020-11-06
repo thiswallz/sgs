@@ -8,5 +8,4 @@ export class SelectCompany implements Action {
   readonly type = ActionTypes.SelectCompany;
   constructor(public payload: number) {}
 }
-
 export type UserActions = SelectCompany;

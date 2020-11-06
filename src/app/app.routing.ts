@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotAuthorizedComponent } from './containers/not-authorized/view/not-authorized/not-authorized.component';
+import { NotAuthorizedComponent } from './containers/not-authorized/not-authorized.component';
 import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
