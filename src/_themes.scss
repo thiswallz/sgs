@@ -1,0 +1,107 @@
+@mixin theme($color, $back-color, $power, $success, $error) {
+  background: $back-color;
+  color: $color;
+  font-size: 17px;
+  .l-footer {
+    background: darken($back-color, 5%);
+  }
+  .l-toolbar {
+    background: darken($back-color, 5%);
+    .l-user-info {
+      color: $color;
+    }
+  }
+  .l-footer,
+  .l-toolbar {
+    .h-separator {
+      color: transparentize($color, 0.8);
+    }
+  }
+  .l-footer {
+    .status-false {
+      animation: disconnected 2s infinite;
+    }
+  }
+  /* scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $power;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $power;
+  }
+  /* mat select */
+  .mat-select-panel {
+    background: darken($back-color, 5%);
+    .mat-option-text {
+      color: $color;
+    }
+  }
+  mat-form-field {
+    .mat-select-arrow,
+    .mat-select-value-text,
+    .mat-select-value,
+    .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline {
+      color: $color;
+    }
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: transparentize($color, 0.7);
+  }
+  /* actions  */
+  .c-actions {
+    button {
+      cursor: pointer;
+      background: transparentize($power, 0.4);
+      color: $color;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      &:hover {
+        background: transparentize($power, 0.1);
+      }
+    }
+  }
+  .c-connection {
+    color: $success;
+    animation: connected 2s infinite;
+  }
+  /* footer */
+  .l-footer {
+    .h-version {
+      color: transparentize($color, 0.5);
+    }
+  }
+  /* main content */
+  .l-content {
+    &__main {
+      > div {
+        background-color: darken($back-color, 5%);
+      }
+    }
+  }
+  /* table */
+  .l-table {
+    &__head {
+      background: darken($success, 10%);
+    }
+    &__row {
+      cursor: pointer;
+      &:nth-child(even) {
+        background-image: linear-gradient(to right, transparent, transparentize($back-color, 0.4), transparent);
+      }
+      &:hover {
+        background-image: linear-gradient(
+          to right,
+          transparentize($back-color, 0.5),
+          transparentize($back-color, 0.1),
+          transparentize($back-color, 0.5)
+        );
+      }
+    }
+  }
+}

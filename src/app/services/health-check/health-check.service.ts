@@ -6,7 +6,7 @@ import * as statusActions from 'src/app/store/actions/status.actions';
 import { AppState } from 'src/app/store/app.state';
 import { environment } from 'src/environments/environment';
 
-const CHECK_INTERVAL_MS = 2000;
+const CHECK_INTERVAL_MS = 5000;
 
 @Injectable({
   providedIn: 'root'

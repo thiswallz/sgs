@@ -1,4 +1,5 @@
 @import 'settings';
+@import 'themes';
 
 html,
 body {
@@ -10,107 +11,11 @@ body {
   font-weight: 300;
 }
 
-body[data-theme='dark'] {
-  background: $dark;
-  color: $dark-color;
-  font-size: 17px;
-  .l-footer {
-    background: darken($dark, 5%);
-  }
-  .l-toolbar {
-    background: darken($dark, 5%);
-    .l-user-info {
-      color: $dark-color;
-    }
-  }
-  .l-footer,
-  .l-toolbar {
-    .h-separator {
-      color: transparentize($dark-color, 0.8);
-    }
-  }
-  .l-footer {
-    .status-false {
-      animation: disconnected 2s infinite;
-    }
-  }
-  /* scrollbar */
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: $power;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: $power;
-  }
-  /* mat select */
-  .mat-select-panel {
-    background: darken($dark, 5%);
-    .mat-option-text {
-      color: $dark-color;
-    }
-  }
-  mat-form-field {
-    .mat-select-arrow,
-    .mat-select-value-text,
-    .mat-select-value,
-    .mat-form-field-outline-thick,
-    .mat-form-field-appearance-outline {
-      color: $dark-color;
-    }
-  }
-  .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: transparentize($dark-color, 0.7);
-  }
-  /* actions  */
-  .c-actions {
-    button {
-      cursor: pointer;
-      background: transparentize($power, 0.4);
-      color: $dark-color;
-      border-radius: 5px;
-      border: none;
-      font-size: 1rem;
-      &:hover {
-        background: transparentize($power, 0.1);
-      }
-    }
-  }
-  .c-connection {
-    color: $success;
-    animation: connected 2s infinite;
-  }
-  /* footer */
-  .l-footer {
-    .h-version {
-      color: transparentize($dark-color, 0.5);
-    }
-  }
-  /* main content */
-  .l-content {
-    &__main {
-      > div {
-        background-color: darken($dark, 5%);
-      }
-    }
-  }
-  /* table */
-  .l-table {
-    &__head {
-      background: darken($success, 10%);
-    }
-    &__row {
-      cursor: pointer;
-      &:nth-child(even) {
-        background-image: linear-gradient(to right, transparent, transparentize($dark, 0.4), transparent);
-      }
-      &:hover {
-        background-image: linear-gradient(to right, transparentize($dark, 0.5), transparentize($dark, 0.1), transparentize($dark, 0.5));
-      }
-    }
-  }
+body[data-theme='DARK'] {
+  @include theme($dark-color, $dark, $power, $success, $error);
+}
+body[data-theme='LIGHT'] {
+  @include theme($light-color, $light, $power, lighten($success, 10%), $error);
 }
 
 /* ANGULAR AMTERIAL SELECT BOX OVERRIDE */
