@@ -75,6 +75,12 @@ body[data-theme='dark'] {
   .c-connection {
     color: $success;
   }
+  /* footer */
+  .l-footer {
+    .h-version {
+      color: transparentize($dark-color, 0.5);
+    }
+  }
 }
 
 /* ANGULAR AMTERIAL SELECT BOX OVERRIDE */

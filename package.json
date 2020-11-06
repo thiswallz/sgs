@@ -1,6 +1,6 @@
 {
   "name": "sigsense-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "commitmsg": "node_modules/.bin/commitlint -E GIT_PARAMS",
     "ng": "ng",
