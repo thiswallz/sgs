@@ -12,11 +12,65 @@ body {
 body[data-theme='dark'] {
   background: $dark;
   color: $dark-color;
-  font-size: 18px;
+  font-size: 17px;
+
+  .l-toolbar {
+    background: darken($dark, 5%);
+    .l-user-info {
+      color: $dark-color;
+    }
+    .h-separator {
+      color: transparentize($dark-color, 0.8);
+    }
+  }
+  /* scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $power;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $power;
+  }
+  /* mat select */
+  .mat-select-panel {
+    background: darken($dark, 5%);
+    .mat-option-text {
+      color: $dark-color;
+    }
+  }
+  mat-form-field {
+    .mat-select-arrow,
+    .mat-select-value-text,
+    .mat-select-value,
+    .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline {
+      color: $dark-color;
+    }
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: transparentize($dark-color, 0.7);
+  }
+  /* actions  */
+  .c-actions {
+    button {
+      cursor: pointer;
+      background: transparentize($power, 0.4);
+      color: $dark-color;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      &:hover {
+        background: transparentize($power, 0.1);
+      }
+    }
+  }
 }
 
 /* ANGULAR AMTERIAL SELECT BOX OVERRIDE */
-@at-root %clean-spaces {
+%clean-spaces {
   height: 40px;
   padding: 0px;
   margin: 0px;
@@ -32,9 +86,22 @@ mat-form-field {
     }
     .mat-form-field-infix {
       @extend %clean-spaces;
-      border-top: 0.65em solid transparent;
+      border-top: 0.75em solid transparent;
       .mat-select-arrow-wrapper {
         padding-top: 10px;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: $sm) {
+  .l-toolbar {
+    .l-user-info {
+      &__name {
+        display: none;
       }
     }
   }

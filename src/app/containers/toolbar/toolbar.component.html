@@ -1,4 +1,12 @@
 <div class="l-toolbar">
+  <div class="l-user-info">
+    <span class="material-icons">
+      person
+    </span>
+    <div class="l-user-info__name">
+      {{ userInfo.userName }}
+    </div>
+  </div>
   <div class="l-filter">
     <mat-form-field appearance="outline">
       <mat-select [formControl]="companyControl">
