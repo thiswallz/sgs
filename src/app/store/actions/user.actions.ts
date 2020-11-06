@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
 export enum ActionTypes {
-  SelectCompany = '[MESSAGE] Select a company'
+  SelectCompany = '[USER] Select a company'
 }
 
 export class SelectCompany implements Action {

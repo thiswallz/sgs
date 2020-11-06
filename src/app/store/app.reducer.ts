@@ -2,8 +2,10 @@ import { ActionReducerMap } from '@ngrx/store';
 import { AppState } from './app.state';
 import * as fromMessage from './reducers/message.reducer';
 import * as fromUser from './reducers/user.reducer';
+import * as fromStatus from './reducers/status.reducer';
 
 export const reducers: ActionReducerMap<AppState, any> = {
   globalMessage: fromMessage.reducer,
-  user: fromUser.reducer
+  user: fromUser.reducer,
+  status: fromStatus.reducer
 };

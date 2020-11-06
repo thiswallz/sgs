@@ -1,7 +1,10 @@
 <div class="l-footer">
-  <div class="info">
-    <span class="c-connection material-icons">
+  <div class="info" [ngClass]="'status-' + connected">
+    <span class="c-connection material-icons" *ngIf="connected">
       wifi
+    </span>
+    <span class="material-icons" *ngIf="!connected">
+      wifi_off
     </span>
   </div>
   <div class="h-separator">

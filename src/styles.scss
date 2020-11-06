@@ -29,6 +29,11 @@ body[data-theme='dark'] {
       color: transparentize($dark-color, 0.8);
     }
   }
+  .l-footer {
+    .status-false {
+      animation: disconnected 2s infinite;
+    }
+  }
   /* scrollbar */
   ::-webkit-scrollbar {
     width: 5px;
@@ -160,5 +165,17 @@ mat-form-field {
   }
   100% {
     color: darken($success, 5%);
+  }
+}
+
+@keyframes disconnected {
+  0% {
+    color: darken($error, 5%);
+  }
+  50% {
+    color: lighten($error, 20%);
+  }
+  100% {
+    color: darken($error, 5%);
   }
 }

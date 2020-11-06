@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HealthCheckService } from 'src/app/services/health-check/health-check.service';
 
 @Component({
   selector: 'sgs-dashboard-home',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-home.component.scss']
 })
 export class DashboardHomeComponent implements OnInit {
-  constructor() {}
+  constructor(private healthCheckService: HealthCheckService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.healthCheckService.checkHealthStatus();
+  }
 }
