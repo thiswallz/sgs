@@ -1,10 +1,17 @@
 <div *ngIf="loading">Loading...</div>
-<div *ngIf="!loading" class="l-table">
-  <div *ngFor="let asset of assets" class="l-table__row">
-    <div>{{ asset.name }}</div>
-    <div>{{ asset.serial }}</div>
-    <div>{{ asset.manufacturer }}</div>
-    <div>{{ asset.customer }}</div>
-    <div>{{ asset.subscribed }}</div>
+<div *ngIf="!loading && assets" class="l-table">
+  <div class="l-table__head">
+    <div>name</div>
+    <div>customer</div>
+    <div>subscribed</div>
+  </div>
+  <div class="l-table__body">
+    <div *ngFor="let asset of assets" class="l-table__row">
+      <div>{{ asset.name }}</div>
+      <div>{{ asset.customer }}</div>
+      <div>
+        {{ asset.subscribed | subscribe }}
+      </div>
+    </div>
   </div>
 </div>

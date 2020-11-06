@@ -1,7 +1,22 @@
+%row {
+  display: grid;
+  grid-template-rows: 40px;
+  grid-template-columns: repeat(2, 1fr) 120px;
+  > div {
+    padding-top: 10px;
+    padding-left: 5px;
+  }
+}
 .l-table {
+  padding: 10px;
+  box-sizing: border-box;
+  &__head {
+    @extend %row;
+    font-weight: 400;
+    border-radius: 5px 5px 0 0;
+  }
   &__row {
-    display: grid;
-    grid-template-rows: 40px;
-    grid-template-columns: repeat(5, 1fr);
+    @extend %row;
+    grid-template-rows: 38px;
   }
 }

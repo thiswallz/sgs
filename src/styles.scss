@@ -7,6 +7,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-weight: 300;
 }
 
 body[data-theme='dark'] {
@@ -74,6 +75,7 @@ body[data-theme='dark'] {
   }
   .c-connection {
     color: $success;
+    animation: connected 2s infinite;
   }
   /* footer */
   .l-footer {
@@ -86,6 +88,21 @@ body[data-theme='dark'] {
     &__main {
       > div {
         background-color: darken($dark, 5%);
+      }
+    }
+  }
+  /* table */
+  .l-table {
+    &__head {
+      background: darken($success, 10%);
+    }
+    &__row {
+      cursor: pointer;
+      &:nth-child(even) {
+        background-image: linear-gradient(to right, transparent, transparentize($dark, 0.4), transparent);
+      }
+      &:hover {
+        background-image: linear-gradient(to right, transparentize($dark, 0.5), transparentize($dark, 0.1), transparentize($dark, 0.5));
       }
     }
   }
@@ -122,9 +139,26 @@ mat-form-field {
 @media only screen and (max-width: $sm) {
   .l-toolbar {
     .l-user-info {
-      &__name {
+      display: none;
+    }
+    .l-filter {
+      > span {
         display: none;
       }
     }
+  }
+}
+
+/* ANIMATIONS */
+
+@keyframes connected {
+  0% {
+    color: darken($success, 5%);
+  }
+  50% {
+    color: lighten($success, 20%);
+  }
+  100% {
+    color: darken($success, 5%);
   }
 }

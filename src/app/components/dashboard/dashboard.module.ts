@@ -8,6 +8,7 @@ import { DashboardAssetsComponent } from './views/dashboard-assets/dashboard-ass
 import { DashboardHomeComponent } from './views/dashboard-home/dashboard-home.component';
 import { FooterComponent } from 'src/app/containers/footer/footer.component';
 import { AssetModule } from '../asset/asset.module';
+import { SubscribePipe } from 'src/app/pipes/subscribe.pipe';
 
 @NgModule({
   declarations: [DashboardHomeComponent, DashboardAssetsComponent, ToolbarComponent, FooterComponent],
