@@ -8,3 +8,34 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+body[data-theme='dark'] {
+  background: $dark;
+  color: $dark-color;
+  font-size: 18px;
+}
+
+/* ANGULAR AMTERIAL SELECT BOX OVERRIDE */
+@at-root %clean-spaces {
+  height: 40px;
+  padding: 0px;
+  margin: 0px;
+}
+mat-form-field {
+  &.mat-form-field-type-mat-select {
+    .mat-form-field-wrapper {
+      @extend %clean-spaces;
+    }
+    .mat-form-field-flex {
+      @extend %clean-spaces;
+      padding-left: 10px;
+    }
+    .mat-form-field-infix {
+      @extend %clean-spaces;
+      border-top: 0.65em solid transparent;
+      .mat-select-arrow-wrapper {
+        padding-top: 10px;
+      }
+    }
+  }
+}
