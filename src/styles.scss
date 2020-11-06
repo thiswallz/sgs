@@ -81,6 +81,14 @@ body[data-theme='dark'] {
       color: transparentize($dark-color, 0.5);
     }
   }
+  /* main content */
+  .l-content {
+    &__main {
+      > div {
+        background-color: darken($dark, 5%);
+      }
+    }
+  }
 }
 
 /* ANGULAR AMTERIAL SELECT BOX OVERRIDE */

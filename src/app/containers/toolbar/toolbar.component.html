@@ -8,6 +8,7 @@
     </div>
   </div>
   <div class="l-filter">
+    Select company:
     <mat-form-field appearance="outline">
       <mat-select [formControl]="companyControl">
         <mat-option *ngFor="let role of userInfo?.roles" [value]="role.companyId"> {{ role.companyId }} {{ role.companyName }} </mat-option>

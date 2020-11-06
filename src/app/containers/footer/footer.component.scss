@@ -7,7 +7,7 @@
   padding-left: 5px;
   padding-right: 5px;
   box-sizing: border-box;
-  .h-separator {
+  > .h-separator {
     span {
       padding-top: 50%;
     }
@@ -17,6 +17,10 @@
     &__right {
       position: absolute;
       right: 10px;
+      display: flex;
     }
+  }
+  .c-action-btn {
+    cursor: pointer;
   }
 }

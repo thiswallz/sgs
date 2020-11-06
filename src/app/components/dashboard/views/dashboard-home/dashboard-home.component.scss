@@ -2,4 +2,10 @@
   height: 100%;
   display: grid;
   grid-template-rows: 45px auto 45px;
+  &__main {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
 }
