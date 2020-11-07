@@ -7,7 +7,7 @@ import { AssetListComponent } from './asset-list.component';
 describe('AssetListComponent', () => {
   let component: AssetListComponent;
   let fixture: ComponentFixture<AssetListComponent>;
-  const initialState = {};
+  const initialState = { loading: false };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

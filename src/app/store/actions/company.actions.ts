@@ -1,0 +1,19 @@
+import { Action } from '@ngrx/store';
+import { IAsset } from 'src/app/models/asset.model';
+
+export enum ActionTypes {
+  LoadAssets = '[COMPANY] Load assets',
+  AssetsLoaded = '[COMPANY] Assets Loaded'
+}
+
+export class LoadAssets implements Action {
+  readonly type = ActionTypes.LoadAssets;
+  constructor(public paths: string[]) {}
+}
+
+export class AssetsLoaded implements Action {
+  readonly type = ActionTypes.AssetsLoaded;
+  constructor(public payload: IAsset[]) {}
+}
+
+export type CompaniesActions = LoadAssets | AssetsLoaded;

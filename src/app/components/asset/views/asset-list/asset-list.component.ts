@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { forkJoin } from 'rxjs';
 import * as messageActions from 'src/app/store/actions/message.actions';
-import { AssetService } from 'src/app/services/asset/asset.service';
+import * as companyActions from 'src/app/store/actions/company.actions';
 import { IAsset } from 'src/app/models/asset.model';
 import { ICompanyAsset } from 'src/app/models/company.model';
 import { AppState } from 'src/app/store/app.state';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'sgs-asset-list',
@@ -18,9 +18,18 @@ export class AssetListComponent implements OnInit, OnChanges {
   assets: IAsset[];
   loading: boolean;
 
-  constructor(private assetService: AssetService, private ref: ChangeDetectorRef, private store: Store<AppState>) {}
+  constructor(private ref: ChangeDetectorRef, private store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store
+      .select(state => state.company)
+      .pipe(filter(company => !!company))
+      .subscribe(company => {
+        this.loading = company.loading;
+        this.assets = company.assets;
+        this.ref.markForCheck();
+      });
+  }
 
   ngOnChanges() {
     if (this.companyAsset) {
@@ -34,15 +43,6 @@ export class AssetListComponent implements OnInit, OnChanges {
       this.store.dispatch(new messageActions.SendMessageError('No items'));
       return;
     }
-    this.loading = true;
-    forkJoin(
-      companyAsset.items.map(path => {
-        return this.assetService.getDetail(path);
-      })
-    ).subscribe(results => {
-      this.assets = results;
-      this.loading = false;
-      this.ref.markForCheck();
-    });
+    this.store.dispatch(new companyActions.LoadAssets(companyAsset.items));
   }
 }

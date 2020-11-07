@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotAuthorizedComponent } from './containers/not-authorized/not-authorized.component';
 import { AuthInterceptor } from './services/core/interceptors/auth-interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EffectsModule } from '@ngrx/effects';
+import { CompanyEffects } from './store/effects/company.effects';
 
 export function logger(reducer): any {
   return storeLogger()(reducer);
@@ -29,6 +31,7 @@ export const metaReducers = environment.production ? [] : [logger];
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([CompanyEffects]),
     BrowserAnimationsModule,
     MatSnackBarModule
   ],

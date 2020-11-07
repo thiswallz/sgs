@@ -1,5 +1,5 @@
 <div *ngIf="loading">Loading...</div>
-<div *ngIf="!loading && assets" class="l-table">
+<div *ngIf="!loading && assets?.length > 0" class="l-table">
   <div class="l-table__head">
     <div>name</div>
     <div>customer</div>
