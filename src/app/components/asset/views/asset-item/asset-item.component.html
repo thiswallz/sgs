@@ -1,3 +1,9 @@
+<div class="l-preview">
+  <img [src]="image" />
+  <div class="l-loader" *ngIf="loadingImage">
+    <div class="loader"></div>
+  </div>
+</div>
 <div class="l-table" *ngIf="asset">
   <div class="l-table__key">
     <span>Name</span>

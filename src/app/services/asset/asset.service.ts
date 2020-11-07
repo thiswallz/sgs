@@ -13,4 +13,8 @@ export class AssetService {
   getDetail(assetPath: string): Observable<IAsset> {
     return this.http.get<IAsset>(`${environment.restApi}${assetPath}`);
   }
+
+  getImage(assetId: number): Observable<Blob> {
+    return this.http.get(`${environment.restApi}/assets/${assetId}/image`, { responseType: 'blob' });
+  }
 }

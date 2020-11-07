@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { AssetService } from 'src/app/services/asset/asset.service';
@@ -10,6 +11,7 @@ describe('AssetItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [AssetItemComponent],
       providers: [AssetService, provideMockStore({ initialState })]
     }).compileComponents();
