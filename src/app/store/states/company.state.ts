@@ -4,12 +4,14 @@ export interface ICompanyState {
   loading: boolean;
   loaded: boolean;
   assets: IAsset[];
+  selectedAsset: IAsset;
 }
 
 export const initializeState = (): ICompanyState => {
   return {
     loading: false,
     loaded: false,
-    assets: []
+    assets: [],
+    selectedAsset: null
   };
 };

@@ -1,0 +1,17 @@
+.l-table {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  padding: 20px;
+  box-sizing: border-box;
+  column-gap: 5px;
+  row-gap: 5px;
+  > div {
+    height: 35px;
+    position: relative;
+    span {
+      position: absolute;
+      left: 10px;
+      top: 5px;
+    }
+  }
+}

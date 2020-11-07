@@ -6,7 +6,7 @@ import { SubscribePipe } from 'src/app/pipes/subscribe.pipe';
 
 @NgModule({
   declarations: [AssetListComponent, AssetItemComponent, SubscribePipe],
-  exports: [AssetListComponent],
+  exports: [AssetListComponent, AssetItemComponent],
   imports: [CommonModule]
 })
 export class AssetModule {}

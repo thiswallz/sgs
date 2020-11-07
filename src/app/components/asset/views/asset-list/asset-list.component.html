@@ -1,4 +1,6 @@
-<div *ngIf="loading">Loading...</div>
+<div class="l-loader" *ngIf="loading">
+  <div class="loader"></div>
+</div>
 <div *ngIf="!loading && assets?.length > 0" class="l-table">
   <div class="l-table__head">
     <div>name</div>
@@ -6,7 +8,7 @@
     <div>subscribed</div>
   </div>
   <div class="l-table__body">
-    <div *ngFor="let asset of assets" class="l-table__row">
+    <div *ngFor="let asset of assets" class="l-table__row" (click)="select(asset)" [class.selected]="asset?.id === selectedAsset?.id">
       <div>{{ asset.name }}</div>
       <div>{{ asset.customer }}</div>
       <div>

@@ -11,6 +11,10 @@
     column-gap: 10px;
     overflow-y: auto;
   }
+  &__data {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+  }
 }
 .l-title {
   font-size: 1.5em;

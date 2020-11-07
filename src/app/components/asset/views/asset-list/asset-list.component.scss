@@ -20,3 +20,8 @@
     grid-template-rows: 38px;
   }
 }
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+}

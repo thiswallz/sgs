@@ -1,1 +1,43 @@
-<p>asset-item works!</p>
+<div class="l-table" *ngIf="asset">
+  <div class="l-table__key">
+    <span>Name</span>
+  </div>
+  <div class="l-table__value">
+    <span>{{ asset?.name }}</span>
+  </div>
+  <div class="l-table__key">
+    <span>Serial</span>
+  </div>
+  <div class="l-table__value">
+    <span>{{ asset?.serial }}</span>
+  </div>
+  <div class="l-table__key">
+    <span>Description</span>
+  </div>
+  <div class="l-table__value">
+    <span>{{ asset?.description }}</span>
+  </div>
+  <div class="l-table__key">
+    <span>Manufacturer</span>
+  </div>
+  <div class="l-table__value">
+    <span>{{ asset?.manufacturer }}</span>
+  </div>
+  <div class="l-table__key">
+    <span>Customer</span>
+  </div>
+  <div class="l-table__value">
+    <span>{{ asset?.customer }}</span>
+  </div>
+  <div class="l-table__key">
+    <span>Recommendations</span>
+  </div>
+  <div class="l-table__value">
+    <span class="material-icons" *ngIf="asset?.recommendations">
+      thumb_up
+    </span>
+    <span class="material-icons" *ngIf="!asset?.recommendations">
+      thumb_down
+    </span>
+  </div>
+</div>

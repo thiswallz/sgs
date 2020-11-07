@@ -1,14 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
+import { AssetService } from 'src/app/services/asset/asset.service';
 import { AssetItemComponent } from './asset-item.component';
 
 describe('AssetItemComponent', () => {
   let component: AssetItemComponent;
   let fixture: ComponentFixture<AssetItemComponent>;
+  const initialState = { loading: false };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AssetItemComponent]
+      declarations: [AssetItemComponent],
+      providers: [AssetService, provideMockStore({ initialState })]
     }).compileComponents();
   }));
 

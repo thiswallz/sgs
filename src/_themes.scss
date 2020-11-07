@@ -97,6 +97,10 @@
     &__head {
       background: darken($success, 10%);
     }
+    &__key {
+      color: $success;
+      font-weight: 400;
+    }
     &__row {
       cursor: pointer;
       &:nth-child(even) {
@@ -110,10 +114,28 @@
           transparentize($back-color, 0.5)
         );
       }
+      &.selected {
+        background-image: linear-gradient(to right, transparentize($power, 0.9), transparentize($power, 0.5), transparentize($power, 0.9));
+      }
     }
   }
   /* login */
   .l-login {
     background: lighten($back-color, 10%);
+  }
+  /* loader */
+  .l-loader {
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 100px);
+  }
+  .loader {
+    border: 8px solid $back-color;
+    border-radius: 50%;
+    border-top: 8px solid $success;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 0.3s linear infinite;
+    animation: spin 0.3s linear infinite;
   }
 }

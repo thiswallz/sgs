@@ -3,7 +3,8 @@ import { IAsset } from 'src/app/models/asset.model';
 
 export enum ActionTypes {
   LoadAssets = '[COMPANY] Load assets',
-  AssetsLoaded = '[COMPANY] Assets Loaded'
+  AssetsLoaded = '[COMPANY] Assets Loaded',
+  SelectAsset = '[COMPANY] Select Asset'
 }
 
 export class LoadAssets implements Action {
@@ -16,4 +17,9 @@ export class AssetsLoaded implements Action {
   constructor(public payload: IAsset[]) {}
 }
 
-export type CompaniesActions = LoadAssets | AssetsLoaded;
+export class SelectAsset implements Action {
+  readonly type = ActionTypes.SelectAsset;
+  constructor(public payload: IAsset) {}
+}
+
+export type CompaniesActions = LoadAssets | AssetsLoaded | SelectAsset;

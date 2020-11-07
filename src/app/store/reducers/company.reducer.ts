@@ -8,7 +8,8 @@ export function reducer(state = initializeState(), action: CompaniesActions) {
         ...state,
         loaded: false,
         loading: true,
-        assets: []
+        assets: [],
+        selectedAsset: null
       };
     case ActionTypes.AssetsLoaded:
       return {
@@ -16,6 +17,11 @@ export function reducer(state = initializeState(), action: CompaniesActions) {
         loaded: true,
         loading: false,
         assets: action.payload
+      };
+    case ActionTypes.SelectAsset:
+      return {
+        ...state,
+        selectedAsset: action.payload
       };
     default:
       return state;

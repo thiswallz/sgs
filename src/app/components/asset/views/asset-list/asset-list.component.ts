@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 import * as messageActions from 'src/app/store/actions/message.actions';
 import * as companyActions from 'src/app/store/actions/company.actions';
 import { IAsset } from 'src/app/models/asset.model';
 import { ICompanyAsset } from 'src/app/models/company.model';
 import { AppState } from 'src/app/store/app.state';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'sgs-asset-list',
@@ -16,6 +16,7 @@ import { filter } from 'rxjs/operators';
 export class AssetListComponent implements OnInit, OnChanges {
   @Input() companyAsset: ICompanyAsset;
   assets: IAsset[];
+  selectedAsset: IAsset;
   loading: boolean;
 
   constructor(private ref: ChangeDetectorRef, private store: Store<AppState>) {}
@@ -27,6 +28,7 @@ export class AssetListComponent implements OnInit, OnChanges {
       .subscribe(company => {
         this.loading = company.loading;
         this.assets = company.assets;
+        this.selectedAsset = company.selectedAsset;
         this.ref.markForCheck();
       });
   }
@@ -36,6 +38,10 @@ export class AssetListComponent implements OnInit, OnChanges {
       this.assets = [];
       this.loadAssets(this.companyAsset);
     }
+  }
+
+  select(asset: IAsset): void {
+    this.store.dispatch(new companyActions.SelectAsset(asset));
   }
 
   private loadAssets(companyAsset: ICompanyAsset): void {
