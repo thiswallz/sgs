@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 import { IAsset } from 'src/app/models/asset.model';
 import { AppState } from 'src/app/store/app.state';
 
@@ -17,6 +18,7 @@ export class AssetItemComponent implements OnInit {
   ngOnInit(): void {
     this.store
       .select(state => state.company.selectedAsset)
+      .pipe(filter(selected => !!selected))
       .subscribe(asset => {
         this.asset = asset;
         this.ref.markForCheck();

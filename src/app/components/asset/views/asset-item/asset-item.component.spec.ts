@@ -6,7 +6,7 @@ import { AssetItemComponent } from './asset-item.component';
 describe('AssetItemComponent', () => {
   let component: AssetItemComponent;
   let fixture: ComponentFixture<AssetItemComponent>;
-  const initialState = { loading: false };
+  const initialState = { loading: false, company: {} };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
