@@ -7,7 +7,7 @@ Logout
 Assets table by company
 Heartbeat check
 Version in footer
-Responsive
+Responsive (run it and then test at: http://www.responsinator.com/?url=http%3A%2F%2Flocalhost%3A4200%2Fdashboard)
 Dark/Light mode
 Zoom friendly
 

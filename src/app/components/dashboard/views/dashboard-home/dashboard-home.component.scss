@@ -7,12 +7,18 @@
   &__main {
     margin: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     column-gap: 10px;
     overflow-y: auto;
   }
 }
-
+.l-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
 @media only screen and (max-width: $md) {
   .l-content__main {
     grid-template-rows: 1fr 1fr;
